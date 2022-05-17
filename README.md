@@ -59,20 +59,6 @@ E:\Websites\style\bootstrap-4.3.1-dist\js\bootstrap.js
 </pre>
 
 
-## Filetype
-This can be a single filetype or an array of filetypes. You must enter two parts with a dot (*.*) seperating them, a filename and an file extension. eg *\*.txt* or *web\*.log* or *[\*.txt,\*.log]*.\
-Two special characters can be used:
-\* -  any character zero or more times.\
-? - any character zero or one time.\
-
-You cannot put a directory name in here eg *src/\*.css* will not work. It searches on the current working directory and downwards. Change to the *src* directory to do this search.
-
-## Exclude directories
-To make it faster and if you get a permission errors, exclude the directories or files.\
-If there are Permission errors with directories, add them to *excludespecificdirs*.\
-Errors with specific files eg *pagefile.sys*, add it to *excludefilenames*.\
-
-
 
 # How to install
 You need Node installed.
@@ -97,7 +83,7 @@ Dismiss all of the dialogs by choosing *OK*.
 
 ### Command line
 
-kf [search-pattern] [filetype] [options]
+kf [search-pattern] [filetype] [options]\
 Search for text in multiple files. The current directory is where it starts the search. \
 Example: *kf "console.log" "\*.txt"* \
 *kf "status" \*.log -o logs.js*
@@ -108,7 +94,11 @@ Example: *kf "console.log" "\*.txt"* \
 This must be the first argument. It must be the search text you want to search for. If you want to enter a regular expression, use '!' to go into regular expression mode. It stops escaped character clashes with the command line.
 
 [filetype]
-The file extension eg "*logs*.txt" or "*.log" or multiple filetypes - [*log*.txt,*.log]. * is any character one or more times. ? is - or 1 of any character. You cannot enter a directory name in here. It searches on the current working directory and downwards. Filetype must have * .* in it, a filename part and an extension part.
+The file extension. You must enter two parts with a dot (*.*) seperating them, a filename and an file extension. This can be a single filetype or an array of filetypes eg "*logs*.txt" or "*.log" or multiple filetypes - [*log*.txt,*.log]. \
+\* is any character one or more times.
+? is - or 1 of any character.\
+You cannot enter a directory name in here. It searches on the current working directory and downwards. Filetype must have * .* in it, a filename part and an extension part.
+
 
 
 **Options**
@@ -124,7 +114,7 @@ Do the flags seperately eg not -ri,  but -i -r\
 -i                      Case insensitive\
 -c                      Case sensitive\
 
-Settings
+Settings config file
 -s or --settings [settings file]\
 This is a config settings .js file. It can be in the app root directory or in the current directory. You can have different template config search settings. Command line options will always overwrite config settings eg  -r (recursion) will overwrite any settings in config files that say no recusion. settings.js (default) is the lowest level settings file. Lower than that is factory settings.
 
@@ -146,10 +136,17 @@ Default settings (factory settings) - This is the default variable settings in t
 
 
 
+### Exclude directories
+To make it faster and if you get a permission errors, exclude the directories or files.\
+If there are Permission errors with directories, add them to *excludespecificdirs*.\
+Errors with specific files eg *pagefile.sys*, add it to *excludefilenames*.\
+
 *Exclude directories* - These are general directory names that could be in any directory such as *.git* or *.history*. It's an array of directory names. The default is [".history", ".git", "node_modules"].\
 *Exclude specific directories* - An array of specific directories eg *C:\\pics*.\
 *Exclude filenames* - These are general filenames.\
 *Exclude specific filenames* - An array of specific filenames. They could be operating system files eg *C:\pagefile.sys*.\
+
+
 
 *Lines after* - Number of lines to show after the matching text. The default is 3.
 
