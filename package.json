@@ -1,0 +1,23 @@
+{
+    "name": "search",
+    "version": "0.7",
+    "description": "",
+    "main": "search.js",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "search": "node search.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/  .git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "prompt-sync": "^4.2.0"
+    },
+    "devDependencies": {}
+}
