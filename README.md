@@ -70,8 +70,8 @@ Go to the root of the C: drive and paste in: \
 C:> git clone https://github.com/chrisjwaddell/kinderfinder.git
 `
 
-Then type in:
-`cd kinderfinder`
+Then type in:\
+`cd kinderfinder`\
 `npm install`
 
 
@@ -111,14 +111,14 @@ You cannot enter a directory name in here. It searches on the current working di
 
 Output
 -o [output-file]\
-Search results go into this output file. This can be relative (relative to the current directory) or absolute. If no output file is provided in the command line or in config files such as the default ./settings.js, it prints to screen. You can use the redirect (>) on the command line. This works only in non cygwin terminals. Use this '-o' switch to get past that problem or use `bash -c 'kf "search string" "\*.txt" > output.txt'`.
+Search results go into this output file. This can be relative (relative to the current directory) or absolute. If no output file is provided in the command line or in config files such as the default ./settings.js, it prints to screen. You can use the redirect (>) on the command line. This works only in non cygwin terminals. Use this '-o' switch to get past that problem or use `bash -c 'kf "search string" "*.txt" > output.txt'`.
 
 
 Do the flags seperately eg not -ri,  but -i -r\
 -r                      Recursive. Recursively search sub-directories of the root directory. The default yes.\
 -n                      Non-recursive\
 -i                      Case insensitive\
--c                      Case sensitive\
+-c                      Case sensitive
 
 Settings config file
 -s or --settings [settings file]\
@@ -131,7 +131,7 @@ Config files are used to keep different default settings, such as the default ou
 You can have as many config files as you want. *settings.js* is the root config file and should not be removed.\
 Kinder Finder only looks for config files in either the Kinder Finder app root directory or in the current directory you are in.\
 When referring to config files. They must be referred by filename alone without the path.\
-`kf "status" \*.log -s logs.js`\
+`kf "status" *.log -s logs.js`\
 Note - logs.js is the config file located in the Kinder Finder app root directory.
 
 The order of priority of settings (from highest priority to lowest):\
@@ -167,7 +167,7 @@ There are 3 sections and 3 columns to the results section\
 *resultscolumn1* - Column one is for filename and/or line number. {F} to display filepath, {N} to display line number, you can put space characters in.\
 *bottomcolumn1*\
 *bottomcolumn2*\
-*bottomcolumn3*\
+*bottomcolumn3*
 
 
 # Contributions
@@ -177,7 +177,7 @@ Any contributions would be greatly welcomed. Use the *develop* branch and make a
 # Further improvement feature ideas
 There are further ideas to develop the functionality of Kinder Finder.\
 One feature idea is, showing the lines after the text match up until a specified string instead of a fixed number of lines after the match as it does now.\
-The next occurrence of xxx string till EOL or till the next empty line.\
+The next occurrence of xxx string till EOL or till the next empty line.
 
 Exclude certain searches, search for 'id=' but not 'id=Z'.
 
