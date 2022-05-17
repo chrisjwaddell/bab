@@ -70,6 +70,11 @@ Go to the root of the C: drive and paste in: \
 C:> git clone https://github.com/chrisjwaddell/kinderfinder.git
 `
 
+Then type in:
+`cd kinderfinder`
+`npm install`
+
+
 Go to the Start button, type in *env*, and choose *Edit the system environment variables*. \
 Click the *Environment Variables…* button. \
 Under the *System Variables* section (the lower half), find the row with *Path* in the first column, and click *Edit...*. \
