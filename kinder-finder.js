@@ -282,13 +282,13 @@ async function argsRead() {
     })
 
     function usage() {
-        console.log("USAGE: node search.js [search-pattern] [filetype] [options] \r\nTry 'node search.js --help' for more information.");
+        console.log("USAGE: kf [search-pattern] [filetype] [options] \r\nTry 'node search.js --help' for more information.");
     }
 
     function helpInfo() {
-        strHelpInfo = `USAGE: node search.js [search-pattern] [filetype] [options]
-Search for text in multiple files.
-Example: node search.js "console.log" "txt"
+        strHelpInfo = `USAGE: kf [search-pattern] [filetype] [options]
+Search for text in multiple files. The current directory is where it starts the search.
+Example: kf "console.log" "txt"
 
 Mandatory fields
 [search-pattern]        This must be the first argument. It must be the search text you want to search for.
@@ -306,8 +306,8 @@ Output
                         current directory) or absolute. If no output file is provided in the command line
                         or in config files such as the default ./settings.js, it prints to screen. You can use
                         the redirect (>) on the command line. This works only in non cygwin terminals.
-                        You use this '-o' switch to get past that problem or use
-                        'bash -c 'node search.js "search string" "txt" > output.txt'.
+                        Use this '-o' switch to get past that problem or use
+                        'bash -c 'kf "search string" "txt" > output.txt'.
 
 
 Options
