@@ -14,23 +14,15 @@ Kinder Finder is very fast because it uses streams to search and you have great 
 # How to use it
 Change directory to the directory you want to search.\
 The format is:\
-`kf [search-pattern] [filetype] [options]`\
-eg `kf "require" *app.js?`
-*kf "hello world" \*.txt -s search-config.js*
+*kf [search-pattern] [filetype] [options]*\
+eg `kf "require" *app.js?`\
+`kf "hello world" \*.txt -s search-config.js`
 
 To enter a search string that has a regular expression, you can use *!* which puts you into regular expression mode. This stops any clashes with the command line and characters that need escaping like *"*.
 
 It shows the line number and three (default) lines of code.
 
 Regular expression searches don't save in the CLI history, so you can use *!!* which uses the search string from the config settings file.
-
-## Filetype
-This can be a single filetype or an array of filetypes. You must enter two parts with a dot (*.*) seperating them, a filename and an file extension. eg *\*.txt* or *web\*.log* or *[\*.txt,\*.log]*
-Two special characters can be used:
-\* -  any character zero or more times.
-? - any character zero or one time.
-
-You cannot put a directory name in here eg *src/\*.css* will not work. It searches on the current working directory and downwards. Change to the *src* directory to do this search.
 
 To find of *require("bcrypt")* OR *require('bcrypt')* (double or single quote), you can use a regular expression.
 stringsearch - `require\(['"]?`
@@ -39,10 +31,10 @@ stringsearch - `require\(['"]?`
 Searching all *\*.js* files for *require\(['"]?* in *E:\Websites* would produce output like this:
 
 
-Search string - require\(['"]?, Filetype - *.js
+<pre>Search string - require\(['"]?, Filetype - *.js
 3 matches found in 3 files.
 ----------------------------------------------------------------
-E:\Websotes\scripts\jquery-3.3.1.js
+E:\Websites\scripts\jquery-3.3.1.js
 ----------------------------------------------------------------
 25	// e.g. var jQuery = require("jquery")(window);
 26	// See ticket #14549 for more info.
@@ -50,7 +42,7 @@ E:\Websotes\scripts\jquery-3.3.1.js
 28	factory( global, true ) :
 
 ----------------------------------------------------------------
-E:\Websotes\style\bootstrap-4.3.1-dist\js\bootstrap.bundle.js
+E:\Websites\style\bootstrap-4.3.1-dist\js\bootstrap.bundle.js
 ----------------------------------------------------------------
 7	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('jquery')) :
 8	typeof define === 'function' && define.amd ? define(['exports', 'jquery'], factory) :
@@ -58,14 +50,22 @@ E:\Websotes\style\bootstrap-4.3.1-dist\js\bootstrap.bundle.js
 10	}(this, function (exports, $) { 'use strict';
 
 ----------------------------------------------------------------
-E:\Websotes\style\bootstrap-4.3.1-dist\js\bootstrap.js
+E:\Websites\style\bootstrap-4.3.1-dist\js\bootstrap.js
 ----------------------------------------------------------------
 7	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('jquery'), require('popper.js')) :
 8	typeof define === 'function' && define.amd ? define(['exports', 'jquery', 'popper.js'], factory) :
 9	(global = global || self, factory(global.bootstrap = {}, global.jQuery, global.Popper));
 10	}(this, function (exports, $, Popper) { 'use strict';
+</pre>
 
 
+## Filetype
+This can be a single filetype or an array of filetypes. You must enter two parts with a dot (*.*) seperating them, a filename and an file extension. eg *\*.txt* or *web\*.log* or *[\*.txt,\*.log]*
+Two special characters can be used:
+\* -  any character zero or more times.
+? - any character zero or one time.
+
+You cannot put a directory name in here eg *src/\*.css* will not work. It searches on the current working directory and downwards. Change to the *src* directory to do this search.
 
 ## Exclude directories
 To make it faster and if you get a permission errors, exclude the directories or files.
@@ -87,7 +87,7 @@ Go to the root of the C: drive and paste in: \
 Go to the Start button, type in *env*, and choose *Edit the system environment variables*. \
 Click the *Environment Variables…* button. \
 Under the *System Variables* section (the lower half), find the row with *Path* in the first column, and click *Edit...*. \
-The *Edit environment variable* UI will appear. Here, you can click *New*.
+The *Edit environment variable* UI will appear. Here, you can click *New*.\
 Type in *C:\kinderfinder*. \
 Dismiss all of the dialogs by choosing *OK*. \
 
@@ -153,28 +153,17 @@ Default settings (factory settings) - This is the default variable settings in t
 *Lines after* - Number of lines to show after the matching text. The default is 3.
 
 ### Search result output
-The results layout can be customized. Here is also where you select if and where to display the filename and line number.
-You can insert filename anywhere by putting in *{F}*. Insert a line number by inserting *{N}*.
-There are 3 sections and 3 columns to the results section
+The results layout can be customized. Here is also where you select if and where to display the filename and line number.\
+You can insert filename anywhere by putting in *{F}*. Insert a line number by inserting *{N}*.\
+There are 3 sections and 3 columns to the results section\
 
 
-*Filelist at top* - Show a file list of files found at the top. This can be handy if you use macros to flick between file results fast.
-*topcolumn1* - Text that signified a beginning of each matching result. You can put in a format for displaying the start of the results. '---------------{F} ------------" will show the filename with dashes around it.
-*resultscolumn1* - Column one is for filename and/or line number. {F} to display filepath, {N} to display line number, you can put space characters in.
-*bottomcolumn1*
-*bottomcolumn2*
-*bottomcolumn3*
-
-
-
-
-# Some handy uses
-
-Use it to search a group of files for certain text. Search your log files for specific text. Search your coding files for specific text.
-
-To be able to search your text even better, you can create your own system with your own markers or tags in text files. Each tag begins with a certain character or string such as *#* or *\*\**
-eg #1 - to signify priority one.
-
+*Filelist at top* - Show a file list of files found at the top. This can be handy if you use macros to flick between file results fast.\
+*topcolumn1* - Text that signified a beginning of each matching result. You can put in a format for displaying the start of the results. '---------------{F} ------------" will show the filename with dashes around it.\
+*resultscolumn1* - Column one is for filename and/or line number. {F} to display filepath, {N} to display line number, you can put space characters in.\
+*bottomcolumn1*\
+*bottomcolumn2*\
+*bottomcolumn3*\
 
 
 # Contributions

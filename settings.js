@@ -1,8 +1,6 @@
 module.exports = {
-    // searchstring: String.raw``,
 
-    // outputfile: "G:\\My Drive\\search.txt",
-    outputfile: "E:\\search.txt",
+    outputfile: "C:\\search.txt",
     recursive: true,
 
     excludedirs: [".history", ".git", "node_modules", "archive"],
@@ -11,10 +9,8 @@ module.exports = {
     excludespecificfilepaths: [],
 
     linesafter: 3,
-    //fieldseperator: "\t", // tab seperator was causing formatting problems
-    // fieldseperator: "|",
 
-    filelistattop: true,
+    filelistattop: false,
     topcolumn1: "----------------------------------------------------------------\r\n^{F}\r\n----------------------------------------------------------------",
     resultscolumn1: "{N}  ",
     bottomcolumn1: "",
