@@ -3,7 +3,7 @@
 Kinder Finder searches for text in multiple text files by traversing down from the current directory. It can show lines of text after the matching text, you can include line number and you can format the output.
 Config files can keep your default search settings such as excluding directories and files.
 It uses Node so you must have Node installed.
-Out of the box, it excludes *\*.git, node_modules, .history*, and some Windows and Linux operating system files.
+Out of the box, it excludes *.git, node_modules, .history*, and some Windows and Linux operating system files.
 
 You can use regular expressions to search for text with.
 It is similar to Unix/Linux *grep* but with some unique features.
@@ -16,15 +16,13 @@ Change directory to the directory you want to search.\
 The format is:\
 *kf [search-pattern] [filetype] [options]*\
 eg `kf "require" *app.js?`\
-`kf "hello world" \*.txt -s search-config.js`
+`kf "hello world" *.txt -s search-config.js`
 
 To enter a search string that has a regular expression, you can use *!* which puts you into regular expression mode. This stops any clashes with the command line and characters that need escaping like *"*.
 
-It shows the line number and three (default) lines of code.
+The results show the line number and three (default) lines after the text match.
 
-Regular expression searches don't save in the CLI history, so you can use *!!* which uses the search string from the config settings file.
-
-To find of *require("bcrypt")* OR *require('bcrypt')* (double or single quote), you can use a regular expression.
+To find *require("bcrypt")* OR *require('bcrypt')* (double or single quote), you can use a regular expression.\
 stringsearch - `require\(['"]?`\
 *['"]* - This means *'* or *"*.
 
@@ -68,7 +66,9 @@ In DOS or Powershell. \
 Go to the root of the C: drive and paste in: \
 *git clone https://github.com/chrisjwaddell/kinderfinder.git*
 
-`C:> git clone https://github.com/chrisjwaddell/kinderfinder.git`
+`
+C:> git clone https://github.com/chrisjwaddell/kinderfinder.git
+`
 
 Go to the Start button, type in *env*, and choose *Edit the system environment variables*. \
 Click the *Environment Variables…* button. \
@@ -92,12 +92,13 @@ Example: *kf "console.log" "\*.txt"* \
 **Mandatory fields** \
 [search-pattern]
 This must be the first argument. It must be the search text you want to search for. If you want to enter a regular expression, use '!' to go into regular expression mode. It stops escaped character clashes with the command line.
+Regular expression searches don't save in the CLI history, so you can use *!!* which uses the search string from the config settings file.
 
 [filetype]
-The file extension. You must enter two parts with a dot (*.*) seperating them, a filename and an file extension. This can be a single filetype or an array of filetypes eg "*logs*.txt" or "*.log" or multiple filetypes - [*log*.txt,*.log]. \
+The file extension. You must enter two parts with a dot (*.*) seperating them, a filename and an file extension. This can be a single filetype or an array of filetypes eg "\*logs\*.txt" or "\*.log" or multiple filetypes - [\*log\*.txt,\*.log]. \
 \* is any character one or more times.
 ? is - or 1 of any character.\
-You cannot enter a directory name in here. It searches on the current working directory and downwards. Filetype must have * .* in it, a filename part and an extension part.
+You cannot enter a directory name in here. It searches on the current working directory and downwards. Filetype must have \* .\* in it, a filename part and an extension part.
 
 
 
@@ -105,7 +106,7 @@ You cannot enter a directory name in here. It searches on the current working di
 
 Output
 -o [output-file]\
-Search results go into this output file. This can be relative (relative to the current directory) or absolute. If no output file is provided in the command line or in config files such as the default ./settings.js, it prints to screen. You can use the redirect (>) on the command line. This works only in non cygwin terminals. Use this '-o' switch to get past that problem or use `bash -c 'kf "search string" "*.txt" > output.txt'`.
+Search results go into this output file. This can be relative (relative to the current directory) or absolute. If no output file is provided in the command line or in config files such as the default ./settings.js, it prints to screen. You can use the redirect (>) on the command line. This works only in non cygwin terminals. Use this '-o' switch to get past that problem or use `bash -c 'kf "search string" "\*.txt" > output.txt'`.
 
 
 Do the flags seperately eg not -ri,  but -i -r\
@@ -125,7 +126,7 @@ Config files are used to keep different default settings, such as the default ou
 You can have as many config files as you want. *settings.js* is the root config file and should not be removed.\
 Kinder Finder only looks for config files in either the Kinder Finder app root directory or in the current directory you are in.\
 When referring to config files. They must be referred by filename alone without the path.\
-`kf "status" *.log -s logs.js`\
+`kf "status" \*.log -s logs.js`\
 Note - logs.js is the config file located in the Kinder Finder app root directory.
 
 The order of priority of settings (from highest priority to lowest):\
