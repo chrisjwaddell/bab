@@ -25,11 +25,11 @@ It shows the line number and three (default) lines of code.
 Regular expression searches don't save in the CLI history, so you can use *!!* which uses the search string from the config settings file.
 
 To find of *require("bcrypt")* OR *require('bcrypt')* (double or single quote), you can use a regular expression.
-stringsearch - `require\(['"]?`
+stringsearch - `require\(['"]?`\
 *['"]* - This means *'* or *"*.
 
+### Example of results
 Searching all *\*.js* files for *require\(['"]?* in *E:\Websites* would produce output like this:
-
 
 <pre>Search string - require\(['"]?, Filetype - *.js
 3 matches found in 3 files.
@@ -60,17 +60,17 @@ E:\Websites\style\bootstrap-4.3.1-dist\js\bootstrap.js
 
 
 ## Filetype
-This can be a single filetype or an array of filetypes. You must enter two parts with a dot (*.*) seperating them, a filename and an file extension. eg *\*.txt* or *web\*.log* or *[\*.txt,\*.log]*
+This can be a single filetype or an array of filetypes. You must enter two parts with a dot (*.*) seperating them, a filename and an file extension. eg *\*.txt* or *web\*.log* or *[\*.txt,\*.log]*.\
 Two special characters can be used:
-\* -  any character zero or more times.
-? - any character zero or one time.
+\* -  any character zero or more times.\
+? - any character zero or one time.\
 
 You cannot put a directory name in here eg *src/\*.css* will not work. It searches on the current working directory and downwards. Change to the *src* directory to do this search.
 
 ## Exclude directories
-To make it faster and if you get a permission errors, exclude the directories or files.
-If there are Permission errors with directories, add them to *excludespecificdirs*.
-Errors with specific files eg *pagefile.sys*, add it to *excludefilenames*.
+To make it faster and if you get a permission errors, exclude the directories or files.\
+If there are Permission errors with directories, add them to *excludespecificdirs*.\
+Errors with specific files eg *pagefile.sys*, add it to *excludefilenames*.\
 
 
 
@@ -89,7 +89,7 @@ Click the *Environment Variables…* button. \
 Under the *System Variables* section (the lower half), find the row with *Path* in the first column, and click *Edit...*. \
 The *Edit environment variable* UI will appear. Here, you can click *New*.\
 Type in *C:\kinderfinder*. \
-Dismiss all of the dialogs by choosing *OK*. \
+Dismiss all of the dialogs by choosing *OK*.
 
 
 
@@ -103,7 +103,7 @@ Example: *kf "console.log" "\*.txt"* \
 *kf "status" \*.log -o logs.js*
 
 
-Mandatory fields \
+**Mandatory fields** \
 [search-pattern]
 This must be the first argument. It must be the search text you want to search for. If you want to enter a regular expression, use '!' to go into regular expression mode. It stops escaped character clashes with the command line.
 
@@ -111,44 +111,45 @@ This must be the first argument. It must be the search text you want to search f
 The file extension eg "*logs*.txt" or "*.log" or multiple filetypes - [*log*.txt,*.log]. * is any character one or more times. ? is - or 1 of any character. You cannot enter a directory name in here. It searches on the current working directory and downwards. Filetype must have * .* in it, a filename part and an extension part.
 
 
+**Options**
+
 Output
--o [output-file]
+-o [output-file]\
 Search results go into this output file. This can be relative (relative to the current directory) or absolute. If no output file is provided in the command line or in config files such as the default ./settings.js, it prints to screen. You can use the redirect (>) on the command line. This works only in non cygwin terminals. Use this '-o' switch to get past that problem or use `bash -c 'kf "search string" "*.txt" > output.txt'`.
 
 
-Options
-Do the flags seperately eg not -ri,  but -i -r
--r                      Recursive. Recursively search sub-directories of the root directory. The default yes.
--n                      Non-recursive
--i                      Case insensitive
--c                      Case sensitive
+Do the flags seperately eg not -ri,  but -i -r\
+-r                      Recursive. Recursively search sub-directories of the root directory. The default yes.\
+-n                      Non-recursive\
+-i                      Case insensitive\
+-c                      Case sensitive\
 
 Settings
--s or --settings [settings file]
+-s or --settings [settings file]\
 This is a config settings .js file. It can be in the app root directory or in the current directory. You can have different template config search settings. Command line options will always overwrite config settings eg  -r (recursion) will overwrite any settings in config files that say no recusion. settings.js (default) is the lowest level settings file. Lower than that is factory settings.
 
 
 
 ### Config files
-Config files are used to keep different default settings, such as the default output file, recursion and directories to exclude from the search path.
-You can have as many config files as you want. *settings.js* is the root config file and should not be removed.
-Kinder Finder only looks for config files in either the Kinder Finder app root directory or in the current directory you are in.
-When referring to config files. They must be referred by filename alone without the path.
-`kf "status" *.log -s logs.js`
+Config files are used to keep different default settings, such as the default output file, recursion and directories to exclude from the search path.\
+You can have as many config files as you want. *settings.js* is the root config file and should not be removed.\
+Kinder Finder only looks for config files in either the Kinder Finder app root directory or in the current directory you are in.\
+When referring to config files. They must be referred by filename alone without the path.\
+`kf "status" *.log -s logs.js`\
 Note - logs.js is the config file located in the Kinder Finder app root directory.
 
-The order of priority of settings (from highest priority to lowest):
-Command line options - these overwrite all config settings.
-Config file options - Create new config files for different purposes.
-*settings.json* config file is the default which contains your default preferred settings.
+The order of priority of settings (from highest priority to lowest):\
+Command line options - these overwrite all config settings.\
+Config file options - Create new config files for different purposes.\
+*settings.json* config file is the default which contains your default preferred settings.\
 Default settings (factory settings) - This is the default variable settings in the oode eg the default output filepath is none, recursive is *true*, default lines after the search match is *3*.
 
 
 
-*Exclude directories* - These are general directory names that could be in any directory such as *.git* or *.history*. It's an array of directory names. The default is [".history", ".git", "node_modules"].
-*Exclude specific directories* - An array of specific directories eg *C:\\pics*.
-*Exclude filenames* - These are general filenames.
-*Exclude specific filenames* - An array of specific filenames. They could be operating system files eg *C:\pagefile.sys*.
+*Exclude directories* - These are general directory names that could be in any directory such as *.git* or *.history*. It's an array of directory names. The default is [".history", ".git", "node_modules"].\
+*Exclude specific directories* - An array of specific directories eg *C:\\pics*.\
+*Exclude filenames* - These are general filenames.\
+*Exclude specific filenames* - An array of specific filenames. They could be operating system files eg *C:\pagefile.sys*.\
 
 *Lines after* - Number of lines to show after the matching text. The default is 3.
 
@@ -171,9 +172,9 @@ Any contributions would be greatly welcomed. Use the *develop* branch and make a
 
 
 # Further improvement feature ideas
-There are further ideas to develop the functionality of Kinder Finder.
-One feature idea is, showing the lines after the text match up until a specified string instead of a fixed number of lines after the match as it does now.
-The next occurrence of xxx string till EOL or till the next empty line
+There are further ideas to develop the functionality of Kinder Finder.\
+One feature idea is, showing the lines after the text match up until a specified string instead of a fixed number of lines after the match as it does now.\
+The next occurrence of xxx string till EOL or till the next empty line.\
 
 Exclude certain searches, search for 'id=' but not 'id=Z'.
 
