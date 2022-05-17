@@ -1,6 +1,6 @@
-* Kinder Finder
+# Kinder Finder
 
-Kinder Finder searches for text in multiple text files by traversing down from the current directory. You can include lines of text after the search, you can include line number and you can format the output.
+Kinder Finder searches for text in multiple text files by traversing down from the current directory. It can show lines of text after the matching text, you can include line number and you can format the output.
 Config files can keep your default search settings such as excluding directories and files.
 It uses Node so you must have Node installed.
 Out of the box, it excludes *\*.git, node_modules, .history*, and some Windows and Linux operating system files.
@@ -12,9 +12,9 @@ Kinder Finder is very fast because it uses streams to search and you have great 
 
 
 # How to use it
-Change directory to the directory you want to search.
-The format is:
-kf [search-pattern] [filetype] [options]
+Change directory to the directory you want to search.\
+The format is:\
+`kf [search-pattern] [filetype] [options]`\
 eg `kf "require" *app.js?`
 *kf "hello world" \*.txt -s search-config.js*
 
@@ -25,20 +25,20 @@ It shows the line number and three (default) lines of code.
 Regular expression searches don't save in the CLI history, so you can use *!!* which uses the search string from the config settings file.
 
 ## Filetype
-This can be a single filetype or an array of filetypes. You must enter two parts and a dot (*.*), a filename and an file extension. eg *\*.txt* or *web\*.log* or *[\*.txt,\*.log]*
+This can be a single filetype or an array of filetypes. You must enter two parts with a dot (*.*) seperating them, a filename and an file extension. eg *\*.txt* or *web\*.log* or *[\*.txt,\*.log]*
 Two special characters can be used:
-* -  any character zero or more times.
+\* -  any character zero or more times.
 ? - any character zero or one time.
 
 You cannot put a directory name in here eg *src/\*.css* will not work. It searches on the current working directory and downwards. Change to the *src* directory to do this search.
 
 To find of *require("bcrypt")* OR *require('bcrypt')* (double or single quote), you can use a regular expression.
 stringsearch - `require\(['"]?`
-*['"]* - This means *'* or *"*
+*['"]* - This means *'* or *"*.
 
-Searching all **\*.js** files for **require\(['"]?** in **E:\Webistes** would produce output like this:
+Searching all *\*.js* files for *require\(['"]?* in *E:\Websites* would produce output like this:
 
-`
+
 Search string - require\(['"]?, Filetype - *.js
 3 matches found in 3 files.
 ----------------------------------------------------------------
@@ -64,7 +64,7 @@ E:\Websotes\style\bootstrap-4.3.1-dist\js\bootstrap.js
 8	typeof define === 'function' && define.amd ? define(['exports', 'jquery', 'popper.js'], factory) :
 9	(global = global || self, factory(global.bootstrap = {}, global.jQuery, global.Popper));
 10	}(this, function (exports, $, Popper) { 'use strict';
-`
+
 
 
 ## Exclude directories
@@ -78,18 +78,18 @@ Errors with specific files eg *pagefile.sys*, add it to *excludefilenames*.
 You need Node installed.
 
 ### To install on Windows
-In DOS or Powershell
-Go to the root of the C: drive and paste in:
+In DOS or Powershell. \
+Go to the root of the C: drive and paste in: \
 *git clone https://github.com/chrisjwaddell/kinderfinder.git*
 
 `C:> git clone https://github.com/chrisjwaddell/kinderfinder.git`
 
-Go to the Start button, type in *env*, and choose *Edit the system environment variables*.
-Click the *Environment Variables…* button.
-Under the *System Variables* section (the lower half), find the row with *Path* in the first column, and click *Edit...*.
+Go to the Start button, type in *env*, and choose *Edit the system environment variables*. \
+Click the *Environment Variables…* button. \
+Under the *System Variables* section (the lower half), find the row with *Path* in the first column, and click *Edit...*. \
 The *Edit environment variable* UI will appear. Here, you can click *New*.
-Type in *C:\kinderfinder*.
-Dismiss all of the dialogs by choosing *OK*.
+Type in *C:\kinderfinder*. \
+Dismiss all of the dialogs by choosing *OK*. \
 
 
 
@@ -98,29 +98,22 @@ Dismiss all of the dialogs by choosing *OK*.
 ### Command line
 
 kf [search-pattern] [filetype] [options]
-Search for text in multiple files. The current directory is where it starts the search.
-Example: *kf "console.log" "\*.txt"*
+Search for text in multiple files. The current directory is where it starts the search. \
+Example: *kf "console.log" "\*.txt"* \
 *kf "status" \*.log -o logs.js*
 
 
-Mandatory fields
-[search-pattern]        This must be the first argument. It must be the search text you want to search for.
-                        If you want to enter a regular expression, use '!' to go into regular expression mode.
-                        It stops escaped character clashes with the command line.
-[filetype]              The file extension eg "*logs*.txt" or "*.log" or multiple filetypes
-                        - [*log*.txt,*.log].
-                        * is any character one or more times. ? is - or 1 of any character. You cannot enter a
-                        directory name in here. It searches on the current working directory and downwards.
-                        Filetype must have * .* in it, a filename part and an extension part.
+Mandatory fields \
+[search-pattern]
+This must be the first argument. It must be the search text you want to search for. If you want to enter a regular expression, use '!' to go into regular expression mode. It stops escaped character clashes with the command line.
+
+[filetype]
+The file extension eg "*logs*.txt" or "*.log" or multiple filetypes - [*log*.txt,*.log]. * is any character one or more times. ? is - or 1 of any character. You cannot enter a directory name in here. It searches on the current working directory and downwards. Filetype must have * .* in it, a filename part and an extension part.
 
 
 Output
--o [output-file]        Search results go into this output file. This can be relative (relative to the
-                        current directory) or absolute. If no output file is provided in the command line
-                        or in config files such as the default ./settings.js, it prints to screen. You can use
-                        the redirect (>) on the command line. This works only in non cygwin terminals.
-                        Use this '-o' switch to get past that problem or use
-                        'bash -c 'kf "search string" "*.txt" > output.txt'.
+-o [output-file]
+Search results go into this output file. This can be relative (relative to the current directory) or absolute. If no output file is provided in the command line or in config files such as the default ./settings.js, it prints to screen. You can use the redirect (>) on the command line. This works only in non cygwin terminals. Use this '-o' switch to get past that problem or use `bash -c 'kf "search string" "*.txt" > output.txt'`.
 
 
 Options
@@ -131,12 +124,8 @@ Do the flags seperately eg not -ri,  but -i -r
 -c                      Case sensitive
 
 Settings
--s or --settings [settings file]    This is a config settings .js file. It can be in the app root directory
-                         or in the current directory. You can have different template config search settings.
-                         Command line options will always overwrite config settings eg  -r (recursion) will
-                         overwrite any settings in config files that say no recusion. settings.js (default) is
-                         the lowest level settings file. Lower than that is factory settings.
-
+-s or --settings [settings file]
+This is a config settings .js file. It can be in the app root directory or in the current directory. You can have different template config search settings. Command line options will always overwrite config settings eg  -r (recursion) will overwrite any settings in config files that say no recusion. settings.js (default) is the lowest level settings file. Lower than that is factory settings.
 
 
 

@@ -1,17 +1,14 @@
 {
-    "name": "search",
+    "name": "kinderfinder",
     "version": "0.7",
     "description": "",
-    "main": "search.js",
-    "directories": {
-        "test": "test"
-    },
+    "main": "kf.bat",
     "scripts": {
-        "search": "node search.js"
+        "kf": "node kinderfinder.js"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/  .git"
+        "url": "git+https://github.com/chrisjwaddell/kinderfinder"
     },
     "keywords": [],
     "author": "",
