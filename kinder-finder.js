@@ -62,7 +62,7 @@ function fileRead(filePath) {
     let lines = ''
     let fileMatch = false
 
-    // console.log("fileRead - " + filePath)
+    let linenumber = 0
 
     return new Promise((resolve, reject) => {
 
@@ -72,33 +72,28 @@ function fileRead(filePath) {
             if (!arrFilesFound.includes(filePath)) {
                 // File already searched
                 arrFilesFound.push(filePath)
-
             } else {
-                fileMatch = true
+                // fileMatch = true
                 resolve("already searched")
             }
 
             let foundLine = -1
             lines.forEach((cv, i) => {
-
                 if (cv.match(regEx)) {
-                    // console.log("matched cv  - " + cv)
                     matchesCount += 1
                     if (!fileMatch) {
-                        // console.log(filePath)
-
                         matchesFiles += 1
                         strOutput += strtopCol1(filePath) + "\r\n"
-                        // strOutput += fieldSeperator + "------------------------------------------------------------------------\r\n"
                         fileMatch = true
                         arrFilesMatch.push(filePath)
                     }
                     foundLine = i
                 }
+                linenumber += 1
 
                 if (foundLine !== -1) {
                     if ((i - foundLine >= 0) && (i - foundLine <= linesAfter)) {
-                        strOutput += strresultCol1(filePath, String(i + 1)) + fieldSeperator + textLine(cv) + fieldSeperator + "\r\n"
+                        strOutput += strresultCol1(filePath, String(linenumber + 1)) + fieldSeperator + textLine(cv) + fieldSeperator + "\r\n"
                     } else if (i - foundLine === linesAfter + 1) {
                         strOutput += strbottomCol1(filePath) + fieldSeperator + strbottomCol2(filePath) + fieldSeperator + strbottomCol3(filePath) + '\r\n'
                     }
