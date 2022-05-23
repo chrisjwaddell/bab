@@ -284,7 +284,7 @@ async function argsRead() {
 
     function regularExpressionWrong() {
         strError = "Error - Invalid Regular expression for the search string." + "\r\n"
-        strError += "You can use '!' to enter special characters such as *, ' in the regular expression." + "\r\n"
+        strError += "You can use '!' in the search string to enter special characters such as *, ' in the regular expression." + "\r\n"
         strError += "USAGE: kf [search-pattern] [filetype] [options] \r\nTry 'kf --help' for more information."
         console.log(strError)
     }
