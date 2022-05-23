@@ -285,21 +285,21 @@ async function argsRead() {
     function regularExpressionWrong() {
         strError = "Error - Invalid Regular expression for the search string." + "\r\n"
         strError += "You can use '!' in the search string to enter special characters such as *, ' in the regular expression." + "\r\n"
-        strError += "USAGE: kf [search-pattern] [filetype] [options] \r\nTry 'kf --help' for more information."
+        strError += "USAGE: kf [search-string] [filetype] [options] \r\nTry 'kf --help' for more information."
         console.log(strError)
     }
 
     function usage() {
-        console.log("USAGE: kf [search-pattern] [filetype] [options] \r\nTry 'kf --help' for more information.");
+        console.log("USAGE: kf [search-string] [filetype] [options] \r\nTry 'kf --help' for more information.");
     }
 
     function helpInfo() {
-        strHelpInfo = `USAGE: kf [search-pattern] [filetype] [options]
+        strHelpInfo = `USAGE: kf [search-string] [filetype] [options]
 Search for text in multiple files. The current directory is where it starts the search.
 Example: kf "console.log" "txt"
 
 Mandatory fields
-[search-pattern]        This must be the first argument. It must be the search text you want to search for.
+[search-string]        This must be the first argument. It must be the search text you want to search for.
                         If you want to enter a regular expression, use '!' to go into regular expression mode.
                         It stops escaped character clashes with the command line.
 [filetype]              The file extension eg "*logs*.txt" or "*.log" or multiple filetypes
