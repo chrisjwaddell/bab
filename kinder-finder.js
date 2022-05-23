@@ -285,12 +285,12 @@ async function argsRead() {
     function regularExpressionWrong() {
         strError = "Error - Invalid Regular expression for the search string." + "\r\n"
         strError += "You can use '!' to enter special characters such as *, ' in the regular expression." + "\r\n"
-        strError += "USAGE: kf [search-pattern] [filetype] [options] \r\nTry 'node search.js --help' for more information."
+        strError += "USAGE: kf [search-pattern] [filetype] [options] \r\nTry 'kf --help' for more information."
         console.log(strError)
     }
 
     function usage() {
-        console.log("USAGE: kf [search-pattern] [filetype] [options] \r\nTry 'node search.js --help' for more information.");
+        console.log("USAGE: kf [search-pattern] [filetype] [options] \r\nTry 'kf --help' for more information.");
     }
 
     function helpInfo() {
