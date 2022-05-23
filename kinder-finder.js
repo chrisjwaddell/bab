@@ -209,7 +209,13 @@ async function argsRead() {
                 regEx = new RegExp(re, "i");
             } else {
                 re = String.raw `${args[0]}`;
-                regEx = new RegExp(re, "i");
+                try {
+                    regEx = new RegExp(re, "i");
+                } catch (err) {
+                    // console.log("An error occurred")
+                    regularExpressionWrong()
+                    reject()
+                }
             }
 
             searchSummary = 'Search string - ' + re
@@ -275,6 +281,13 @@ async function argsRead() {
         }
 
     })
+
+    function regularExpressionWrong() {
+        strError = "Error - Invalid Regular expression for the search string." + "\r\n"
+        strError += "You can use '!' to enter special characters such as *, ' in the regular expression." + "\r\n"
+        strError += "USAGE: kf [search-pattern] [filetype] [options] \r\nTry 'node search.js --help' for more information."
+        console.log(strError)
+    }
 
     function usage() {
         console.log("USAGE: kf [search-pattern] [filetype] [options] \r\nTry 'node search.js --help' for more information.");
@@ -364,17 +377,9 @@ async function main() {
                             })
                         }
 
-                        // // if (i === arrFiletype.length - 1) {
-                        // setTimeout(() => {
-                        //     // console.log(outputfile)
-                        //     resultsShow()
-                        // }, 2000)
-                        // // }
-
-                        // await p
                     })
                     .catch((err) => {
-                        console.error(err)
+                        // console.error(err)
                     })
             })
             .catch((err) => {
