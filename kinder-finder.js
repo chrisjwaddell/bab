@@ -484,7 +484,6 @@ function resultsShow() {
 
     // It creates the output if it doesn't exist and overwrites it if it does
     function outputWrite(content) {
-        // console.log(/\\/.test(String.raw `${outputfile}`))
         if ((outputfile[0] === ".") || (!/\\/.test(String.raw `${outputfile}`))) {
             outputfile = path.join(__dirname, outputfile)
         }
@@ -513,38 +512,4 @@ function filenameValid(filename, filetype) {
     // But @ is an accepted character in a Windows filename
     let regex = new RegExp(replaceQuestion)
     return regex.test(filename) // this works
-}
-
-
-if (typeof testmode === 'undefined') {
-    main()
-} else {
-    test()
-}
-
-
-function test() {
-    //console.log(filenameValid("E:\wamp64\www\Github-Repos\search-text-in-directories\dev\0-Dev-notes.txt", "txt"))
-
-    //E:\wamp64\www\Github-Repos\search-text-in-directories\dev\search-20220507.js *search*.js
-    // console.log(filenameValid2("E:\wamp64\www\Github-Repos\search-text-in-directories\dev\search-20220507.js", "*search*.txt"))
-    console.log(filenameValid2("search-20220507.js", "*search*.js"))
-    console.log(filenameValid2("search-20220507.js", "search*.js"))
-
-
-    function filenameValid2(filename, filetype) {
-        console.log("filenameValid", filename, filetype)
-        const strCharsAllowedWindows = String.raw `[A-Za-z0-9\s_\-~@\!#%&'\{\}\(\)]`
-        // Replace * with allowed chars
-        let replaceStars = filetype.replace(/\*/g, strCharsAllowedWindows + "*")
-        let replaceQuestion = replaceStars.replace(/\?/g, strCharsAllowedWindows + "?") + "$"
-
-        console.log(replaceQuestion)
-
-        // ? and * mean the same thing in terms of repetition in  regular expression and file matching
-        // For some reason @ doesn't work in regex, even if escaped
-        // But @ is an accepted character in a Windows filename
-        let regex = new RegExp(replaceQuestion)
-        return regex.test(filename) // this works
-    }
 }
