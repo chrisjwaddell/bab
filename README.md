@@ -27,7 +27,7 @@ stringsearch - `require\(['"]?`\
 *['"]* - This means *'* or *"*.
 
 ### Example of results
-Searching all *\*.js* files for *require\(['"]?* in *E:\Websites* would produce output like this:
+Searching all *\*.js* files for *require\('* or *require\("* in *E:\Websites* use this regular expression - *require\(['"]?*, which would produce output like this:
 
 <pre>Search string - require\(['"]?, Filetype - *.js
 3 matches found in 3 files.
