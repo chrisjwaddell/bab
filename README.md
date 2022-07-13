@@ -150,8 +150,7 @@ Errors with specific files eg *pagefile.sys*, add it to *excludefilenames*.
 *Exclude directories* - These are general directory names that could be in any directory such as *.git* or *.history*. It's an array of directory names. The default is [".history", ".git", "node_modules"].\
 *Exclude specific directories* - An array of specific directories eg *C:\\pics*.\
 *Exclude filenames* - These are general filenames.\
-*Exclude specific filenames* - An array of specific filenames. They could be operating system files eg *C:\pagefile.sys*.\
-
+*Exclude specific filenames* - An array of specific filenames. They could be operating system files eg *C:\pagefile.sys*.
 
 
 *Lines after* - Number of lines to show after the matching text. The default is 3.
