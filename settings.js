@@ -1,3 +1,4 @@
+// This config file is used by Kinder Finder, a text file search tool
 module.exports = {
 
     outputfile: "C:\\search.txt",
