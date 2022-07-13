@@ -114,7 +114,7 @@ Output
 Search results go into this output file. This can be relative (relative to the current directory) or absolute. If no output file is provided in the command line or in config files such as the default ./settings.js, it prints to screen. You can use the redirect (>) on the command line. This works only in non cygwin terminals. Use this '-o' switch to get past that problem or use `bash -c 'kf "search string" "*.txt" > output.txt'`.
 
 
-Do the flags seperately eg not -ri,  but -i -r\
+Do the flags seperately eg -r -r not -ri\
 -r                      Recursive. Recursively search sub-directories of the root directory. The default yes.\
 -n                      Non-recursive\
 -i                      Case insensitive\
@@ -159,7 +159,7 @@ Errors with specific files eg *pagefile.sys*, add it to *excludefilenames*.\
 ### Search result output
 The results layout can be customized. Here is also where you select if and where to display the filename and line number.\
 You can insert filename anywhere by putting in *{F}*. Insert a line number by inserting *{N}*.\
-There are 3 sections and 3 columns to the results section\
+There are 3 sections and 3 columns to the results section.
 
 
 *Filelist at top* - Show a file list of files found at the top. This can be handy if you use macros to flick between file results fast.\
