@@ -417,11 +417,6 @@ async function directoriesLoop(dir, ext) {
                                 // resolve(true)
                             }
                         } else {
-                            // if (path.extname(fileName) === "." + ext) {
-                            if (fileName.includes("PROJECTS")) {
-                                // console.log("fileName - " + fileName + " - ext - " + ext + " - " + filenameValid(fileName, ext))
-                                // console.log(fileName, ext, filenameValid(fileName, ext))
-                            }
                             if (filenameValid(fileName, ext)) {
                                 await fileRead(fileName, true)
                                 // resolve(true)
