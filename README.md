@@ -137,8 +137,8 @@ In this example, logs.js is the config file that has the settings for searching 
 
 #### Priority order of settings
 From highest priority to lowest:\
-1 - Command line options - these overwrite all config settings. -i (case insensitive) would overwrite the config file setting.\
-2 - Config file options - Create new config files for different purposes.\
+1 - Command line settings - these overwrite all config settings. -i (case insensitive switch) would overwrite the config file setting.\
+2 - Config file settings - Create new config files for different purposes.\
 3 - *settings.json* config file in the app root directory is the default which contains your default preferred settings.\
 4 - Default settings (factory settings) - These settings are the default variable settings in the oode eg the default output filepath is none, recursive is *true*, the default number of lines after the search match is *3*.
 
@@ -177,8 +177,8 @@ Any contributions would be greatly welcomed. Use the *develop* branch and make a
 
 # Further improvement feature ideas
 There are further ideas to develop the functionality of Kinder Finder.\
-One feature idea is, showing the lines after the text match up until a specified string instead of a fixed number of lines after the match as it does now. Show the text matching a string and the next 5 lines or up until an empty line (two consecutive line breaks).
-The next occurrence of xxx string till EOL or till the next empty line.
+One feature idea is, showing the lines after the text match up until a specified string instead of a fixed number of lines after the match as it does now. Show the text matching a string and the next 5 lines or up until an empty line (two consecutive line breaks).\
+
 
 Exclude certain searches, search for 'id=' but not 'id=Z'.
 
