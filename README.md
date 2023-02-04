@@ -1,9 +1,9 @@
 # Kinder Finder
 
 Kinder Finder searches for text in multiple text files by traversing down from the current directory. It can show lines of text after the matching text, you can include line number and you can format the output.
-Config files can keep your default search settings such as excluding directories and files.
-It uses Node so you must have Node installed.
+Config files can keep your default search settings such as which directories and files to exclude.
 Out of the box, it excludes *.git, node_modules, .history*, and some Windows and Linux operating system files.
+**Note** - It requires Node.js so you must have it installed.
 
 You can use regular expressions to search for text with.
 It is similar to Unix/Linux *grep* but with some unique features.
