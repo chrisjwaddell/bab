@@ -129,17 +129,18 @@ This is a config settings .js file. It can be in the app root directory or in th
 
 ### Config files
 Config files are used to keep different default settings, such as the default output file, recursion and directories to exclude from the search path.\
-You can have as many config files as you want. *settings.js* is the root config file and should not be removed.\
+You can have as many config files as you want. *settings.js* is the root and default config file in the installed directory. It should not be removed.\
 Kinder Finder only looks for config files in either the Kinder Finder app root directory or in the current directory you are in.\
 When referring to config files. They must be referred by filename alone without the path.\
 `kf "status" *.log -s logs.js`\
-Note - logs.js is the config file located in the Kinder Finder app root directory.
+In this example, logs.js is the config file that has the settings for searching for log files. It's stored in either the current directory or in the Kinder Finder app root directory.
 
-The order of priority of settings (from highest priority to lowest):\
-Command line options - these overwrite all config settings.\
-Config file options - Create new config files for different purposes.\
-*settings.json* config file is the default which contains your default preferred settings.\
-Default settings (factory settings) - This is the default variable settings in the oode eg the default output filepath is none, recursive is *true*, default lines after the search match is *3*.
+#### Priority order of settings
+From highest priority to lowest:\
+1 - Command line options - these overwrite all config settings. -i (case insensitive) would overwrite the config file setting.\
+2 - Config file options - Create new config files for different purposes.\
+3 - *settings.json* config file in the app root directory is the default which contains your default preferred settings.\
+4 - Default settings (factory settings) - These settings are the default variable settings in the oode eg the default output filepath is none, recursive is *true*, the default number of lines after the search match is *3*.
 
 
 
@@ -176,7 +177,7 @@ Any contributions would be greatly welcomed. Use the *develop* branch and make a
 
 # Further improvement feature ideas
 There are further ideas to develop the functionality of Kinder Finder.\
-One feature idea is, showing the lines after the text match up until a specified string instead of a fixed number of lines after the match as it does now.\
+One feature idea is, showing the lines after the text match up until a specified string instead of a fixed number of lines after the match as it does now. Show the text matching a string and the next 5 lines or up until an empty line (two consecutive line breaks).
 The next occurrence of xxx string till EOL or till the next empty line.
 
 Exclude certain searches, search for 'id=' but not 'id=Z'.
