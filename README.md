@@ -16,8 +16,8 @@ Kinder Finder is very fast because it uses streams to search and you have great 
 Change directory to the directory you want to search.\
 The format is:\
 *kf [search-pattern] [filetype] [options]*\
-eg `kf "require" *app.js?`\
-`kf "hello world" *.txt -s search-config.js`
+eg `kf "require" *app.js`\
+`kf "hello world" *.txt -s search.js`
 
 To enter a search string that has a regular expression, you can use *!* which puts you into regular expression mode. This stops any clashes with the command line and characters that need escaping like *"*.
 
