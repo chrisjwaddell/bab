@@ -1,6 +1,5 @@
-# Kinder Finder
-
-Kinder Finder searches for text in multiple text files by traversing down from the current directory. It can show lines of text after the matching text, you can include line number and you can format the output.
+# Bab
+Bab searches for text in multiple text files by traversing down from the current directory. It can show lines of text after the matching text, you can include line number and you can format the output.
 Config files can keep your default search settings such as which directories and files to exclude.
 Out of the box, it excludes *.git, node_modules, .history*, and some Windows and Linux operating system files.\
 \
@@ -9,24 +8,41 @@ Out of the box, it excludes *.git, node_modules, .history*, and some Windows and
 You can use regular expressions to search for text with.
 It is similar to Unix/Linux *grep* but with some unique features.
 
-Kinder Finder is very fast because it uses streams to search and you have great option on what diretories and files to exclude. And you can save these lists as template searches.
-
+Bab is very fast because it uses streams to search and you have great option on what diretories and files to exclude. And you can save these lists as template searches.
+  
+<br><br>
 
 # How to use it
 Change directory to the directory you want to search.\
-The format is:\
-*kf [search-pattern] [filetype] [options]*\
-eg `kf "require" *app.js`\
-`kf "hello world" *.txt -s search.js`
 
-To enter a search string that has a regular expression, you can use *!* which puts you into regular expression mode. This stops any clashes with the command line and characters that need escaping like *"*.
+If you have no special characters in the search string (special characters being any of the following characters - ^ $    . * ?    ! : |    + - =    \ /    ( ) [ ] { })
+
+The format is:\
+*bab [search-pattern] [filetype] [options]*
+
+eg 
+```
+`bab "hello" *app.js`
+````
+
+```
+`bab "hello" *.txt -s search.js`
+```
+
+If the search string has special characters, use a regular expression. To enter a search string that has a regular expression, you can use *!* which puts you into regular expression mode. This stops any clashes with the command line and characters that need escaping like *"*.
 
 The results show the line number and three (default) lines after the text match.
 
 To find *require("bcrypt")* OR *require('bcrypt')* (double or single quote), you can use a regular expression.\
-stringsearch - `require\(['"]?`\
-*['"]* - This means *'* or *"*.
+```
+bab ! "*.js"
+Enter regular expression: require\\(['"]
+```
 
+
+*['"]* - This means search for either character *'* or *"*.
+
+<br>
 ### Example of results
 Searching all *\*.js* files for *require\('* or *require\("* in *E:\Websites* use this regular expression - *require\(['"]?*, which would produce output like this:
 
@@ -58,21 +74,21 @@ E:\Websites\style\bootstrap-4.3.1-dist\js\bootstrap.js
 </pre>
 
 
-
+<br><br>
 # How to install
 You need Node installed.
 
 ### To install on Windows
 In DOS or Powershell. \
 Go to the root of the C: drive and paste in: \
-*git clone https://github.com/chrisjwaddell/kinderfinder.git*
+*git clone https://github.com/chrisjwaddell/bab.git*
 
 `
-C:> git clone https://github.com/chrisjwaddell/kinderfinder.git
+C:> git clone https://github.com/chrisjwaddell/bab.git
 `
 
 Then type in:\
-`cd kinderfinder`\
+`cd bab`\
 `npm install`
 
 
@@ -80,19 +96,19 @@ Go to the Start button, type in *env*, and choose *Edit the system environment v
 Click the *Environment Variables…* button. \
 Under the *System Variables* section (the lower half), find the row with *Path* in the first column, and click *Edit...*. \
 The *Edit environment variable* UI will appear. Here, you can click *New*.\
-Type in *C:\kinderfinder*. \
+Type in *C:\bab*. \
 Dismiss all of the dialogs by choosing *OK*.
 
 
-
+<br><br>
 # Settings
 
 ### Command line
 
-kf [search-pattern] [filetype] [options]\
+bab [search-pattern] [filetype] [options]\
 Search for text in multiple files. The current directory is where it starts the search. \
-Example: *kf "console.log" "\*.txt"* \
-*kf "status" \*.log -o logs.js*
+Example: *bab "console.log" "\*.txt"* \
+*bab "status" \*.log -o logs.js*
 
 
 **Mandatory fields** \
@@ -111,8 +127,8 @@ You cannot enter a directory name in here. It searches on the current working di
 **Options**
 
 Output
--o [output-file]\
-Search results go into this output file. This can be relative (relative to the current directory) or absolute. If no output file is provided in the command line or in config files such as the default ./settings.js, it prints to screen. You can use the redirect (>) on the command line. This works only in non cygwin terminals. Use this '-o' switch to get past that problem or use `bash -c 'kf "search string" "*.txt" > output.txt'`.
+-o [output-file]
+Search results go into this output file. This can be relative (relative to the current directory) or absolute. If no output file is provided in the command line or in config files such as the default ./settings.js, it prints to screen. You can use the redirect (>) on the command line. This works only in non cygwin terminals. Use this '-o' switch to get past that problem or use `bash -c 'bab "search string" "*.txt" > output.txt'`.
 
 
 Do the flags seperately eg -i -r not -ir\
@@ -126,14 +142,15 @@ Settings config file
 This is a config settings .js file. It can be in the app root directory or in the current directory. You can have different template config search settings. Command line options will always overwrite config settings eg  -r (recursion) will overwrite any settings in config files that say no recusion. settings.js (default) is the lowest level settings file. Lower than that is factory settings.
 
 
+<br>
 
 ### Config files
 Config files are used to keep different default settings, such as the default output file, recursion and directories to exclude from the search path.\
 You can have as many config files as you want. *settings.js* is the root and default config file in the installed directory. It should not be removed.\
-Kinder Finder only looks for config files in either the Kinder Finder app root directory or in the current directory you are in.\
+Bab only looks for config files in either the Bab app root directory or in the current directory you are in.\
 When referring to config files. They must be referred by filename alone without the path.\
-`kf "status" *.log -s logs.js`\
-In this example, logs.js is the config file that has the settings for searching for log files. It's stored in either the current directory or in the Kinder Finder app root directory.
+`bab "status" *.log -s logs.js`\
+In this example, logs.js is the config file that has the settings for searching for log files. It's stored in either the current directory or in the Bab app root directory.
 
 #### Priority order of settings
 From highest priority to lowest:\
@@ -143,9 +160,10 @@ From highest priority to lowest:\
 4 - Default settings (factory settings) - These settings are the default variable settings in the code eg the default output filepath is none, recursive is *true*, the default number of lines after the search match is *3*.
 
 
+<br>
 
 ### Exclude directories
-To make it faster and if you get a permission errors, exclude the directories or files.\
+To make it faster and if you get permission errors for systems files that cannot be read, exclude the directories or files.\
 If there are Permission errors with directories, add them to *excludespecificdirs*.\
 Errors with specific files eg *pagefile.sys*, add it to *excludefilenames*.
 
@@ -170,13 +188,14 @@ There are 3 sections and 3 columns to the results section.
 *bottomcolumn2*\
 *bottomcolumn3*
 
+<br><br>
 
 # Contributions
 Any contributions would be greatly welcomed. Use the *develop* branch and make a pull request on the *develop* branch.
 
 
 # Further improvement feature ideas
-There are further ideas to develop the functionality of Kinder Finder.\
+There are further ideas to develop the functionality of Bab.\
 One feature idea is, showing the lines after the text match up until a specified string instead of a fixed number of lines after the match as it does now. Show the text matching a string and the next 5 lines or up until an empty line (two consecutive line breaks).
 
 

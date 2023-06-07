@@ -1,20 +1,20 @@
 {
-    "name": "kinderfinder",
-    "version": "0.7.0",
-    "description": "Search text files recursively for a search string.",
-    "main": "kf.bat",
-    "scripts": {
-        "kf": "node kinderfinder.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/chrisjwaddell/kinderfinder"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "MIT",
-    "dependencies": {
-        "prompt-sync": "^4.2.0"
-    },
-    "devDependencies": {}
+	"name": "bab",
+	"version": "0.7.0",
+	"description": "Search text files recursively for a search string.",
+	"main": "bab.bat",
+	"scripts": {
+		"bab": "node bab.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/chrisjwaddell/bab"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "MIT",
+	"dependencies": {
+		"prompt-sync": "^4.2.0"
+	},
+	"devDependencies": {}
 }
