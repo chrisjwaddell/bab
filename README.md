@@ -22,11 +22,11 @@ The format is:\
 
 eg 
 ```
-`bab "hello" *app.js`
+bab "hello" "*app.js"
 ````
 
 ```
-`bab "hello" *.txt -s search.js`
+bab "hello" "*.txt" -s "search.js
 ```
 
 If the search string has special characters, use a regular expression. To enter a search string that has a regular expression, you can use *!* which puts you into regular expression mode. This stops any clashes with the command line and characters that need escaping like *"*.
@@ -36,7 +36,7 @@ The results show the line number and three (default) lines after the text match.
 To find *require("bcrypt")* OR *require('bcrypt')* (double or single quote), you can use a regular expression.\
 ```
 bab ! "*.js"
-Enter regular expression: require\(['"]
+Enter regular expression: require\(['"]?
 ```
 
 
@@ -150,8 +150,10 @@ This is a config settings .js file. It can be in the app root directory or in th
 Config files are used to keep different default settings, such as the default output file, recursion and directories to exclude from the search path.\
 You can have as many config files as you want. *settings.js* is the root and default config file in the installed directory. It should not be removed.\
 Bab only looks for config files in either the Bab app root directory or in the current directory you are in.\
-When referring to config files. They must be referred by filename alone without the path.\
-`bab "status" *.log -s logs.js`\
+When referring to config files. They must be referred by filename alone without the path.
+```
+bab "status" "*.log" -s "logs.js"
+````
 In this example, logs.js is the config file that has the settings for searching for log files. It's stored in either the current directory or in the Bab app root directory.
 
 #### Priority order of settings
