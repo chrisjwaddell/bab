@@ -36,13 +36,14 @@ The results show the line number and three (default) lines after the text match.
 To find *require("bcrypt")* OR *require('bcrypt')* (double or single quote), you can use a regular expression.\
 ```
 bab ! "*.js"
-Enter regular expression: require\\(['"]
+Enter regular expression: require\(['"]
 ```
 
 
 *['"]* - This means search for either character *'* or *"*.
 
 <br>
+
 ### Example of results
 Searching all *\*.js* files for *require\('* or *require\("* in *E:\Websites* use this regular expression - *require\(['"]?*, which would produce output like this:
 
@@ -75,6 +76,7 @@ E:\Websites\style\bootstrap-4.3.1-dist\js\bootstrap.js
 
 
 <br><br>
+
 # How to install
 You need Node installed.
 
@@ -108,15 +110,15 @@ Dismiss all of the dialogs by choosing *OK*.
 bab [search-pattern] [filetype] [options]\
 Search for text in multiple files. The current directory is where it starts the search. \
 Example: *bab "console.log" "\*.txt"* \
-*bab "status" \*.log -o logs.js*
+*bab "status" "\*.log" -o "logs.js"*
 
 
 **Mandatory fields** \
-[search-pattern]
+[search-pattern]  
 This must be the first argument. It must be the search text you want to search for. If you want to enter a regular expression, use '!' to go into regular expression mode. It stops escaped character clashes with the command line.
 Regular expression searches don't save in the CLI history, so you can use *!!* which uses the search string from the config settings file.
 
-[filetype]
+[filetype]  
 The file extension. You must enter two parts with a dot (*.*) seperating them, a filename and an file extension. This can be a single filetype or an array of filetypes eg "\*logs\*.txt" or "\*.log" or multiple filetypes - [\*log\*.txt,\*.log]. \
 \* is any character one or more times.
 ? is - or 1 of any character.\
@@ -126,8 +128,8 @@ You cannot enter a directory name in here. It searches on the current working di
 
 **Options**
 
-Output
--o [output-file]
+Output\
+-o [output-file]\
 Search results go into this output file. This can be relative (relative to the current directory) or absolute. If no output file is provided in the command line or in config files such as the default ./settings.js, it prints to screen. You can use the redirect (>) on the command line. This works only in non cygwin terminals. Use this '-o' switch to get past that problem or use `bash -c 'bab "search string" "*.txt" > output.txt'`.
 
 
