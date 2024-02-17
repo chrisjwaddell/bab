@@ -1,4 +1,7 @@
 # Bab
+
+<b>Bab searches multiple text files for a specific text string.</b>
+
 Bab searches for text in multiple text files by traversing down from the current directory. It can show lines of text after the matching text, you can include line number and you can format the output.
 Config files can keep your default search settings such as which directories and files to exclude.
 Out of the box, it excludes *.git, node_modules, .history*, and some Windows and Linux operating system files.\
@@ -13,7 +16,7 @@ Bab is very fast because it uses streams to search and you have great option on 
 <br><br>
 
 # How to use it
-Change directory to the directory you want to search.\
+Change directory to the directory you want to search.
 
 If you have no special characters in the search string (special characters being any of the following characters - ^ $    . * ?    ! : |    + - =    \ /    ( ) [ ] { })
 
@@ -33,7 +36,7 @@ If the search string has special characters, use a regular expression. To enter 
 
 The results show the line number and three (default) lines after the text match.
 
-To find *require("bcrypt")* OR *require('bcrypt')* (double or single quote), you can use a regular expression.\
+To find *require("bcrypt")* OR *require('bcrypt')* (double or single quote), you can use a regular expression.
 ```
 bab ! "*.js"
 Enter regular expression: require\(['"]?
@@ -192,7 +195,7 @@ There are 3 sections and 3 columns to the results section.
 *bottomcolumn2*\
 *bottomcolumn3*
 
-<br><br>
+<br>
 
 # Contributions
 Any contributions would be greatly welcomed. Use the *develop* branch and make a pull request on the *develop* branch.
