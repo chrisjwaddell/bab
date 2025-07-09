@@ -1,4 +1,12 @@
-# Bab
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+    <a href="https://github.com/othneildrew/Best-README-Template">
+        <img src="images/logo.png" alt="Logo" width="90" height="90" style="border-radius: 20px;">
+    </a>
+
+<h1 align="center">Bab</h1>
+</div>
 
 <b>Bab searches multiple text files for a specific text string.</b>
 
